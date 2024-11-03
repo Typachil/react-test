@@ -1,0 +1,21 @@
+:root {
+  /* Typography */
+
+  /* Colors */
+
+
+  /* Icon */
+  --app-icon-size-small: 16px;
+  --app-icon-size-medium: 20px;
+  --app-icon-size-default: 24px;
+
+  /* Other  */
+  --app-transition-quick: 100ms;
+  --app-transition-default: 250ms;
+  --app-transition-smooth: 300ms;
+  --app-transition-long: 500ms;
+
+  --media-laptop-query: 1512px;
+  --media-tablet-query: 960px;
+  --media-mobile-query: 375px;
+}
