@@ -44,7 +44,7 @@ $z-indexes: (
 }
 
 @mixin font($fontFamily, $size, $lineHeight, $weight) {
-  font-family: var($fontFamily);
+  font-family: $fontFamily, sans-serif;
   font-size: $size;
   line-height: $lineHeight;
   font-weight: $weight;

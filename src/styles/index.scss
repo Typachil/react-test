@@ -1,7 +1,10 @@
 /* Abstracts */
-@import './abstracts/variables.scss';
-@import './abstracts/mixins.scss';
+@use './abstracts/variables.scss';
 
 /* Base */
-@import './base/reset.scss';
-@import './base/common.scss';
+@use './base/reset.scss';
+@use './base/common.scss';
+
+/* Pages */
+@use './pages/index.scss';
+@use './pages/form.scss';
