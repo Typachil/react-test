@@ -94,7 +94,7 @@ export const Table: FC = observer(() => {
                         {index < headlineName.length - 1 && (
                             <div
                                 className="table__resize-handle"
-                                onMouseDown={() => handleColumnResize(index)}
+                                onMouseDown={handleColumnResize(index)}
                             />
                         )}
                     </th>
