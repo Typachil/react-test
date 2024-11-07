@@ -11,7 +11,7 @@ export const fetchData = async (page: number) => {
             throw new Error('Ошибка при загрузке данных');
         }
         const data = await response.json();
-        setData(data.results.map((item: TableRowType, index) => ({
+        setData(data.results.map((item: TableRowType, index: number) => ({
             id: index + 1,
             name: item.name,
             height: item.height,
@@ -20,8 +20,8 @@ export const fetchData = async (page: number) => {
             skin_color: item.skin_color,
         })));
         setDataCount(data.count)
-    } catch (error) {
-        setError(error.message);
+    } catch (error : unknown) {
+        setError(error);
     } finally {
         setLoading(false);
     }

@@ -1,12 +1,11 @@
 import clsx from 'classnames';
-import React, {FC, MouseEvent, useCallback, useEffect} from 'react';
+import {FC, MouseEvent, useCallback, useEffect} from 'react';
 
 import { KEY } from '@/shared/constants/keyCodes';
 
 import './Modal.scss';
 
 import type { DrawerProps } from './Modal.types.ts';
-import {Portal} from "@/components/Portal";
 
 export const Modal: FC<DrawerProps> = ({
   children,

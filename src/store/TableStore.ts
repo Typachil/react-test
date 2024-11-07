@@ -16,7 +16,7 @@ export class TableStore {
   sortField: string = 'col1'; // Поле для сортировки
   sortOrder: 'asc' | 'desc' = 'asc'; // Порядок сортировки
   isLoading: boolean = false;
-  error: string | null = null;
+  error: string | unknown;
 
   constructor() {
     makeAutoObservable(this);
@@ -53,7 +53,7 @@ export class TableStore {
     this.isLoading = loading;
   }
 
-  setError = (error: string | null) => {
+  setError = (error: string | unknown) => {
     this.error = error;
   }
 
@@ -71,9 +71,9 @@ export class TableStore {
     this.sortField = field;
     this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
 
-    this.data.sort((a, b) => {
-      if (a[field] < b[field]) return this.sortOrder === 'asc' ? -1 : 1;
-      if (a[field] > b[field]) return this.sortOrder === 'asc' ? 1 : -1;
+    this.data.sort((a : TableRowType, b : TableRowType) => {
+      if (a[field as keyof TableRowType] < b[field as keyof TableRowType]) return this.sortOrder === 'asc' ? -1 : 1;
+      if (a[field as keyof TableRowType] > b[field as keyof TableRowType]) return this.sortOrder === 'asc' ? 1 : -1;
       return 0;
     });
   }

@@ -6,4 +6,6 @@ export type DrawerProps = {
   onOverlayClick?: () => void;
 
   isOpen?: boolean;
+
+  className?: string;
 } & PropsWithChildren;

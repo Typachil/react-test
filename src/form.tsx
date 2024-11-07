@@ -1,12 +1,20 @@
-import {useFormik} from "formik";
+import {FormikErrors, useFormik} from "formik";
 import {Button} from "@/components/Button";
 import {tableStore} from "@/store/TableStore.ts";
 import {observer} from "mobx-react-lite";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-const validate = values => {
-    const errors = {};
+interface FormValues {
+    name: string;
+    height: string;
+    mass: string;
+    hair_color: string;
+    skin_color: string;
+}
+
+const validate = (values : FormValues) => {
+    const errors: FormikErrors<FormValues> = {};
     if (!values.name) errors["name"] = 'Поле "Имя" не может быть пустым';
     if (!values.height) errors["height"] = 'Поле "Рост" не может быть пустым';
     if (!values.mass) errors["mass"] = 'Поле "Масса" не может быть пустым';
@@ -57,7 +65,6 @@ const FormPage = observer(() => {
                     <input
                         type="text"
                         placeholder="Michel"
-                        name={'name'}
                         {...addForm.getFieldProps('name')}
                     />
                     {addForm.touched.name && addForm.errors.name ?
@@ -69,7 +76,6 @@ const FormPage = observer(() => {
                     <input
                         type="text"
                         placeholder="150"
-                        name={'height'}
                         {...addForm.getFieldProps('height')}
                     />
                     {addForm.touched.height && addForm.errors.height ?
@@ -81,7 +87,6 @@ const FormPage = observer(() => {
                     <input
                         type="text"
                         placeholder="70"
-                        name={'mass'}
                         {...addForm.getFieldProps('mass')}
                     />
                     {addForm.touched.mass && addForm.errors.mass ?
@@ -93,7 +98,6 @@ const FormPage = observer(() => {
                     <input
                         type="text"
                         placeholder="red"
-                        name={'hair_color'}
                         {...addForm.getFieldProps('hair_color')}
                     />
                     {addForm.touched.hair_color && addForm.errors.hair_color ?
@@ -105,7 +109,6 @@ const FormPage = observer(() => {
                     <input
                         type="text"
                         placeholder="black"
-                        name={'skin_color'}
                         {...addForm.getFieldProps('skin_color')}
                     />
                     {addForm.touched.skin_color && addForm.errors.skin_color ?

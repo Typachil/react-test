@@ -4,8 +4,8 @@ import {fetchData} from "@/shared/api/table.ts";
 import {tableStore} from "@/store/TableStore.ts";
 import {observer} from "mobx-react-lite";
 import {useEffect} from "react";
-import {Pagination} from "@/components/Pagination/Pagination.tsx";
 import {Link} from "react-router-dom";
+import {Pagination} from "@/components/Pagination";
 
 const IndexPage = observer(() => {
     const {data, currentPage, dataCount, rowsPerPage, setData, setPage, setDataCount} = tableStore;

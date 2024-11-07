@@ -1,5 +1,5 @@
 // Components
-export { Portal } from './Portal';
+export { Pagination } from './Pagination.tsx';
 
 // Types
-export type { PortalProps } from './Portal.types';
+export type { PaginationProps } from './Pagination.types';

@@ -13,7 +13,7 @@ export const Table: FC = observer(() => {
     const {data, isLoading, moveRow, sortData, deleteRow} = tableStore;
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [currentRowDel, setCurrentRowDel] = useState<number | null>(null);
-    const [headlineWidths, setHeadlineWidths] = useState(() => {
+    const [headlineWidths, setHeadlineWidths] = useState<number[]>(() => {
         const savedWidths = localStorage.getItem('columnWidths');
         return savedWidths ? JSON.parse(savedWidths) : [180, 100, 100, 150, 150]
     });
@@ -55,7 +55,7 @@ export const Table: FC = observer(() => {
         return (event: MouseEvent) => {
             const startX = event.pageX;
 
-            const mouseMoveHandler = (moveEvent) => {
+            const mouseMoveHandler = (moveEvent: MouseEvent) => {
                 const newWidth = headlineWidths[index] + (moveEvent.pageX - startX);
                 setHeadlineWidths((prevWidths) => {
                     const newWidths = [...prevWidths];
@@ -94,7 +94,7 @@ export const Table: FC = observer(() => {
                         {index < headlineName.length - 1 && (
                             <div
                                 className="table__resize-handle"
-                                onMouseDown={handleColumnResize(index)}
+                                onMouseDown={() => handleColumnResize(index)}
                             />
                         )}
                     </th>
